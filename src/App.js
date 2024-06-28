@@ -1,12 +1,12 @@
 import './App.css';
-import { useGetAllPostQuery, useGetPostByIdQuery, useGetPostByLimitQuery, useDeletePostMutation } from './services/post';
+import { useGetAllPostQuery, useGetPostByIdQuery, useGetPostByLimitQuery, useDeletePostMutation, useCreatePostMutation } from './services/post';
 
 function App() {
   // const { data, isError, isLoading, isSuccess } = useGetAllPostQuery();
   // const { data, isError, isLoading, isSuccess } = useGetPostByIdQuery(66);
   // const { data, isError, isLoading, isSuccess } = useGetPostByLimitQuery(40);
-  const [deletePost, response] = useDeletePostMutation(1);
-
+  // const [deletePost, response] = useDeletePostMutation(1);
+  const [createPost, response] = useCreatePostMutation();
 
   console.log(response)
 
@@ -41,7 +41,11 @@ function App() {
       ))} */}
 
       {/* Delete data */}
-      <button onClick={() => deletePost(2)}>Delete</button>
+      {/* <button onClick={() => deletePost(2)}>Delete</button> */}
+    
+      {/* Create data */}
+      <button onClick={() => createPost()}>Delete</button>
+
     </div>
   );
 }
