@@ -1,12 +1,20 @@
 import './App.css';
-import { useGetAllPostQuery, useGetPostByIdQuery, useGetPostByLimitQuery, useDeletePostMutation, useCreatePostMutation } from './services/post';
+import { useGetAllPostQuery, useGetPostByIdQuery, useGetPostByLimitQuery, useDeletePostMutation, useCreatePostMutation, useUpdatePostMutation } from './services/post';
+const updatedData = {
+  id: 1,
+  title: "foo",
+  body: "bar",
+  userId: 1
+}
 
 function App() {
   // const { data, isError, isLoading, isSuccess } = useGetAllPostQuery();
   // const { data, isError, isLoading, isSuccess } = useGetPostByIdQuery(66);
   // const { data, isError, isLoading, isSuccess } = useGetPostByLimitQuery(40);
   // const [deletePost, response] = useDeletePostMutation(1);
-  const [createPost, response] = useCreatePostMutation();
+  // const [createPost, response] = useCreatePostMutation();
+  const [updatePost, response] = useUpdatePostMutation();
+
 
   console.log(response)
 
@@ -42,10 +50,12 @@ function App() {
 
       {/* Delete data */}
       {/* <button onClick={() => deletePost(2)}>Delete</button> */}
-    
-      {/* Create data */}
-      <button onClick={() => createPost()}>Delete</button>
 
+      {/* Create data */}
+      {/* <button onClick={() => createPost()}>Create</button> */}
+
+      {/* update data */}
+      <button onClick={() => updatePost(updatedData)}>Update</button>
     </div>
   );
 }
